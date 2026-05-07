@@ -32,3 +32,6 @@ desktop.ini
 
 # Logs
 *.log
+
+# pytest
+.pytest_cache/

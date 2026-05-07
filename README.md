@@ -80,6 +80,17 @@ The first run creates `campus_park.db` and seeds it with two lots (Lot A: 20 spa
 
 Returns `409 Conflict` if the event would put the lot into an impossible state (entering a full lot, exiting an empty one).
 
+## Tests
+
+The domain layer is pure (no DB, no HTTP imports), so it can be unit-tested in isolation — no fixtures, no mocks, no test server.
+
+```powershell
+pip install -r requirements-dev.txt
+python -m pytest -v
+```
+
+14 tests cover `validate_event` (entering full lots, exiting empty lots, unknown event types) and `status_label` (the 85% near-full threshold).
+
 ## Project layout
 
 ```
@@ -88,6 +99,9 @@ Returns `409 Conflict` if the event would put the lot into an impossible state (
 ├── occupancy.py      # Pure domain rules (validate_event, status_label)
 ├── db.py             # SQLite persistence (schema, queries, seed)
 ├── requirements.txt
+├── requirements-dev.txt
+├── tests/
+│   └── test_occupancy.py
 └── static/
     ├── index.html    # Driver dashboard
     ├── app.js        # Polling + Chart.js logic
