@@ -2,8 +2,6 @@
 
 A real-time campus parking availability system. Drivers see which lots are open, gate events update occupancy live, and an admin dashboard lets staff correct mistaken events.
 
-Built as a year-long university practical project (RTU, 6th semester).
-
 ## What it does
 
 - **Driver dashboard** — live lot status (Available / Near full / Full), free spaces, and a stepped-line chart of the last hour's occupancy.
